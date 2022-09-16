@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Green Reborn</title>
+    <link rel="icon" th:href="@{/static/images/favicon-32x32.png}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href = "@{/static/css/contactsstyle.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    
+
+</head>
+<section class="header">
+    <nav>
+        <a th:href="@{/home}">
+            <img th:src="@{/static/images/logo1.png}">
+        </a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a th:href="@{/home}">НАЧАЛО</a></li>
+                    <li><a th:href="@{/about}">ЗА НАС</a></li>
+                    <li><a th:href="@{/contacts}">КОНТАКТИ</a></li>
+                    <li sec:authorize="isAnonymous()"><a th:href="@{/login}">ВХОД</a></li>
+                    <li sec:authorize="isAnonymous()"><a th:href="@{/register}">РЕГИСТРАЦИЯ</a></li>
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/profile}" sec:authentication= "principal.username"></a></li>
+
+                </ul>
+            </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+</section>
+    <section class="form">
+        <form>
+            <h1 class="form-text">Свържи се с нас</h1>      
+            <input name="name" type="text" class="feedback-input" placeholder="Име" />   
+            <input name="email" type="text" class="feedback-input" placeholder="Имейл" />
+            <textarea name="text" class="feedback-input" placeholder="Коментар"></textarea>
+            <div class="svg-wrapper">
+                <svg height="60" width="420" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="shape1" height="60" width="420" />
+                  <rect class="shape2" height="60" width="420" />
+                  <div class="text2" onclick="location.href='#'" style="cursor: pointer;">Изпрати</div>
+                </svg>
+              </div>
+          </form>
+    </section>
+    <div class="vertical-line"></div>
+    <section class="links">
+        <div class="address">
+            <h3><span class="glyphicon">&#xe062;</span> Адрес</h3>
+            <p>ж.к. Изгрев, 8008 ж.к. Изгрев, Бургас</p>
+        </div>
+        <hr class="hr">
+        <div class="number">
+            <h3><span class="glyphicon">&#xe182;</span> Телефон</h3>
+            <p>+359 11 222 3333</p>
+        </div>
+        <hr class="hr">
+        <div class="email">
+            <h3><span class="glyphicon">&#x2709;</span> Имейл</h3>
+            <a href="#">greenreborn@gmail.com</a>
+        </div>
+    </section>
+</html>

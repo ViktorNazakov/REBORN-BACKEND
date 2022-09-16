@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device=width, initial-scale=1.0">
+    <title>Green Reborn</title>
+    <link rel="icon" th:href="@{/static/images/favicon-32x32.png}">
+    <link th:href = "@{/static/css/style.css}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<section class="header">
+    <nav>
+        <a th:href="@{/home}">
+            <img th:src="@{/static/images/logo1.png}"/>
+        </a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a th:href="@{/home}">НАЧАЛО</a></li>
+                    <li><a th:href="@{/about}">ЗА НАС</a></li>
+                    <li><a th:href="@{/contacts}">КОНТАКТИ</a></li>
+                    <li sec:authorize="isAnonymous()"><a th:href="@{/login}">ВХОД</a></li>
+                    <li sec:authorize="isAnonymous()"><a th:href="@{/register}">РЕГИСТРАЦИЯ</a></li>
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/profile}" sec:authentication= "principal.username"></a></li>
+
+                </ul>
+            </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <div class="text-box">
+        <h1>Правилното място за добиване на знания</h1>
+        <p>Проведете урок с избран от Вас учител</p>
+        <a th:href="@{/register}" class="hero-btn">Регистрирай се</a>
+    </div>
+
+</section>
+
+<section class="course">
+    <h1>Голям брой учители, от които да избереш най-подходящия за теб</h1>
+
+    <div class="row">
+        <div class="course-col">
+            <h3>Математика</h3>
+            <ul>
+                <li><a href="profilVesela.html">Весела Петкова</a></li>
+                <li><a href="profilBoqna.html">Бояна Динева</a></li>
+                <li><a href="profilStoqn.html">Стоян Стоянов</a></li>
+                <li><a href="profilIvan.html">Иван Георгиев</a></li>
+            </ul>
+        </div>
+        <div class="course-col">
+            <h3>Български Език</h3>
+            <ul>
+                <li><a href="#">Весела Петкова</a></li>
+                <li><a href="#">Бояна Динева</a></li>
+                <li><a href="#">Стоян Стоянов</a></li>
+                <li><a href="#">Иван Георгиев</a></li>
+            </ul>
+        </div>
+        <div class="course-col">
+            <h3>Английски Език</h3>
+            <ul>
+                <li><a href="#">Весела Петкова</a></li>
+                <li><a href="#">Бояна Динева</a></li>
+                <li><a href="#">Стоян Стоянов</a></li>
+                <li><a href="#">Иван Георгиев</a></li>
+            </ul>
+        </div>
+        <div class="course-col">
+            <h3>Химия</h3>
+            <ul>
+                <li><a href="#">Весела Петкова</a></li>
+                <li><a href="#">Бояна Динева</a></li>
+                <li><a href="#">Стоян Стоянов</a></li>
+                <li><a href="#">Иван Георгиев</a></li>
+            </ul>
+        </div>
+        <div class="course-col">
+            <h3>Биология</h3>
+            <ul>
+                <li><a href="#">Весела Петкова</a></li>
+                <li><a href="#">Бояна Динева</a></li>
+                <li><a href="#">Стоян Стоянов</a></li>
+                <li><a href="#">Иван Георгиев</a></li>
+            </ul>
+        </div>
+        <div class="course-col">
+            <h3>История</h3>
+            <ul>
+                <li><a href="#">Весела Петкова</a></li>
+                <li><a href="#">Бояна Динева</a></li>
+                <li><a href="#">Стоян Стоянов</a></li>
+                <li><a href="#">Иван Георгиев</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="questions">
+    <h1>Защо да избереш нас?</h1>
+    <div class="questions-row">
+        <div class="questions-col">
+            <h3>Връзка с учителите</h3>
+            <p>Ако имаш въпроси по някой предмет, можеш да ги зададеш на съответния учител и да получиш бърз и ясен отговор.</p>
+        </div>
+        <div class="questions-col">
+            <h3>Висококвалифицирани учители</h3>
+            <p>Нашите учители са с професионално развитие и успехи в засягащата ги сфера.</p>
+        </div>
+        <div class="questions-col">
+            <h3>Достъпна и мобилна</h3>
+            <p>Можеш да ползваш нашата платформа по всяко време и навсякъде от компютър, таблет или телефон.</p>
+        </div>
+    </div>
+
+</section>
+
+<section class="learnMore">
+    <div class="learnMore-col1">
+        <h1>За родители</h1>
+        <p>Най-дълбоката ценност за всеки родител е да подсигури добро образование<br> и щастлив живот на децата си. Това е нашата мисия!</p>
+        <a th:href="@{/about}" class="learnMore-btn">Научи повече</a>
+    </div>
+    <div class="learnMore-col2">
+        <h1>За учители</h1>
+        <p>Успехите на учениците са най-голямата награда за всеки учител.<br> Ние ще Ви помогнем да представяте материала на учениците<br> по практичен и ефективен начин.</p>
+        <a th:href="@{/about}" class="learnMore-btn">Научи повече</a>
+    </div>
+</section>
+
+<script>
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu() {
+        navLinks.style.right = "0";
+        navLinks.style.display = "block";
+    }
+    function hideMenu() {
+        navLinks.style.right = "-200px";
+        navLinks.style.display = "none";
+        
+    }
+</script>
+
+</body>
+</html>

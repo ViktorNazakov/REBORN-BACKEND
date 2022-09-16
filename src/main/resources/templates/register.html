@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device=width, initial-scale=1.0">
+    <title>Green Reborn</title>
+    <link rel="icon" th:href="@{/static/images/favicon-32x32.png}">
+    <link rel="stylesheet" th:href = "@{/static/css/registerstyle.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+<section class="header">
+    <nav>
+        <a th:href="@{/home}">
+            <img th:src="@{/static/images/logo1.png}">
+        </a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a th:href="@{/home}">НАЧЧАЛО</a></li>
+                    <li><a th:href="@{/about}">ЗА НАС</a></li>
+                    <li><a th:href="@{/contacts}">КОНТАКТИ</a></li>
+                    <li sec:authorize="isAnonymous()"><a th:href="@{/login}">ВХОД</a></li>
+                    <li sec:authorize="isAnonymous()"><a th:href="@{/register}">РЕГИСТРАЦИЯ</a></li>
+                </ul>
+            </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+</section>
+<section class="form">
+    <form th:action="@{/saveUser}" th:object="${user}" method="post">
+        <input  type="text" th:field="*{username}" required class="feedback-input" placeholder="Име" />
+        <input  type="text" th:field="*{email}" required class="feedback-input" placeholder="Имейл" />
+        <input  type="password" th:field="*{password}" required class="feedback-input" placeholder="Парола" />
+<!--        <button class="svg-wrapper" type="submit">Регистрирай се</button>-->
+        <button class="svg-wrapper" type="submit">
+            <svg height="60" width="420" xmlns="http://www.w3.org/2000/svg">
+              <rect class="shape1" height="60" width="420" />
+              <rect class="shape2" height="60" width="420" />
+              <div class="text2" onclick="location.href='#'" style="cursor: pointer;">Регистрирай се</div>
+            </svg>
+          </button>
+          <p class="text-after-btn">Вече имате регистрация? Кликнете <a th:href="@{/login}" class="to-login">тук</a>!</p>
+      </form>
+</section>
