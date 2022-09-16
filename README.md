@@ -13,4 +13,4 @@ To run the application follow these steps:
 6. When the application is ready go to localhost:8086/ to access the site
 
 
-The application is build with Spring Boot, Spring Web, Spring Security, Spring Data Jpa, Thymeleaf, H2 Database and Spring Mail.
+The application is built with Spring Boot, Spring Web, Spring Security, Spring Data Jpa, Thymeleaf, H2 Database and Spring Mail.
